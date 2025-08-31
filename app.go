@@ -17,7 +17,7 @@ func main() {
 	}
 
 	cfgService := awsconfig.NewService()
-	awsCfg, err := cfgService.GetAWSCfg(context.Background(), flags.Region)
+	awsCfg, err := cfgService.GetAWSCfg(context.Background(), flags.Region, flags.Profile)
 	if err != nil {
 		panic(err)
 	}

@@ -6,9 +6,8 @@ import (
 	"github.com/aws/aws-sdk-go-v2/aws"
 )
 
-type Service struct {
-}
+type Service struct{}
 
 type ConfigService interface {
-	GetAWSCfg(ctx context.Context, region string) (aws.Config, error)
+	GetAWSCfg(ctx context.Context, region, profile string) (aws.Config, error)
 }

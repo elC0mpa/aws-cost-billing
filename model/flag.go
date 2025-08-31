@@ -1,5 +1,6 @@
 package model
 
 type Flags struct {
-	Region string
+	Region  string
+	Profile string
 }

@@ -11,7 +11,12 @@ func NewService() *Service {
 
 func (s *Service) GetParsedFlags() (model.Flags, error) {
 	region := flag.String("region", "us-east-1", "AWS region")
+	profile := flag.String("profile", "", "AWS profile configuration")
+
+	flag.Parse()
+
 	return model.Flags{
-		Region: *region,
+		Region:  *region,
+		Profile: *profile,
 	}, nil
 }
