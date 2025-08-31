@@ -7,10 +7,10 @@ import (
 	"github.com/aws/aws-sdk-go-v2/config"
 )
 
-func NewService() *Service {
-	return &Service{}
+func NewService() *service {
+	return &service{}
 }
 
-func (s *Service) GetAWSCfg(ctx context.Context, region, profile string) (aws.Config, error) {
+func (s *service) GetAWSCfg(ctx context.Context, region, profile string) (aws.Config, error) {
 	return config.LoadDefaultConfig(ctx, config.WithRegion(region), config.WithSharedConfigProfile(profile))
 }

@@ -8,14 +8,15 @@ import (
 	"github.com/aws/aws-sdk-go-v2/service/costexplorer"
 )
 
-type Service struct {
+type service struct {
 	client *costexplorer.Client
 }
 
-type ConfigService interface {
+type CostService interface {
 	GetCurrentMonthCostsByService(ctx context.Context) (*model.CostInfo, error)
 	GetLastMonthCostsByService(ctx context.Context) (*model.CostInfo, error)
 	GetMonthCostsByService(ctx context.Context, endDate time.Time) (*model.CostInfo, error)
 	GetCurrentMonthTotalCosts(ctx context.Context) (*string, error)
+	GetLastMonthTotalCosts(ctx context.Context) (*string, error)
 }
 

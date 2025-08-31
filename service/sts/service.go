@@ -7,14 +7,14 @@ import (
 	"github.com/aws/aws-sdk-go-v2/service/sts"
 )
 
-func NewService(awsconfig aws.Config) *Service {
+func NewService(awsconfig aws.Config) *service {
 	client := sts.NewFromConfig(awsconfig)
-	return &Service{
+	return &service{
 		client: client,
 	}
 }
 
-func (s *Service) GetCallerIdentity(ctx context.Context) (*sts.GetCallerIdentityOutput, error) {
+func (s *service) GetCallerIdentity(ctx context.Context) (*sts.GetCallerIdentityOutput, error) {
 	input := &sts.GetCallerIdentityInput{}
 
 	return s.client.GetCallerIdentity(ctx, input)

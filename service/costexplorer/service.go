@@ -12,23 +12,23 @@ import (
 	"github.com/aws/aws-sdk-go-v2/service/costexplorer/types"
 )
 
-func NewService(awsconfig aws.Config) *Service {
+func NewService(awsconfig aws.Config) *service {
 	client := costexplorer.NewFromConfig(awsconfig)
-	return &Service{
+	return &service{
 		client: client,
 	}
 }
 
-func (s *Service) GetCurrentMonthCostsByService(ctx context.Context) (*model.CostInfo, error) {
+func (s *service) GetCurrentMonthCostsByService(ctx context.Context) (*model.CostInfo, error) {
 	return s.GetMonthCostsByService(ctx, time.Now())
 }
 
-func (s *Service) GetLastMonthCostsByService(ctx context.Context) (*model.CostInfo, error) {
+func (s *service) GetLastMonthCostsByService(ctx context.Context) (*model.CostInfo, error) {
 	oneMonthAgo := time.Now().AddDate(0, -1, 0)
 	return s.GetMonthCostsByService(ctx, oneMonthAgo)
 }
 
-func (s *Service) GetMonthCostsByService(ctx context.Context, endDate time.Time) (*model.CostInfo, error) {
+func (s *service) GetMonthCostsByService(ctx context.Context, endDate time.Time) (*model.CostInfo, error) {
 	firstOfMonth := s.getFirstDayOfMonth(endDate)
 	firstOfMonthStr := firstOfMonth.Format("2006-01-02")
 	costsAggregation := "UnblendedCost"
@@ -59,15 +59,15 @@ func (s *Service) GetMonthCostsByService(ctx context.Context, endDate time.Time)
 	}, nil
 }
 
-func (s *Service) GetCurrentMonthTotalCosts(ctx context.Context) (*string, error) {
+func (s *service) GetCurrentMonthTotalCosts(ctx context.Context) (*string, error) {
 	return s.GetMonthTotalCosts(ctx, time.Now())
 }
 
-func (s *Service) GetLastMonthTotalCosts(ctx context.Context) (*string, error) {
+func (s *service) GetLastMonthTotalCosts(ctx context.Context) (*string, error) {
 	return s.GetMonthTotalCosts(ctx, time.Now().AddDate(0, -1, 0))
 }
 
-func (s *Service) GetMonthTotalCosts(ctx context.Context, endDate time.Time) (*string, error) {
+func (s *service) GetMonthTotalCosts(ctx context.Context, endDate time.Time) (*string, error) {
 	firstOfMonth := s.getFirstDayOfMonth(endDate)
 	firstOfMonthStr := firstOfMonth.Format("2006-01-02")
 	costsAggregation := "UnblendedCost"
@@ -96,11 +96,11 @@ func (s *Service) GetMonthTotalCosts(ctx context.Context, endDate time.Time) (*s
 	return &total, nil
 }
 
-func (s *Service) getFirstDayOfMonth(month time.Time) time.Time {
+func (s *service) getFirstDayOfMonth(month time.Time) time.Time {
 	return time.Date(month.Year(), month.Month(), 1, 0, 0, 0, 0, month.Location())
 }
 
-func (s *Service) filterGroups(results []types.Group, costsAggregation string) model.CostGroup {
+func (s *service) filterGroups(results []types.Group, costsAggregation string) model.CostGroup {
 	filtered := make([]types.Group, 0, len(results))
 
 	for _, g := range results {

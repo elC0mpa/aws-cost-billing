@@ -2,7 +2,7 @@ package flag
 
 import "aws-billing/model"
 
-type Service struct {
+type service struct {
 }
 
 type FlagService interface {
