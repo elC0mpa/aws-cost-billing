@@ -10,6 +10,9 @@ import (
 )
 
 func main() {
+	utils.DrawBanner()
+	utils.StartSpinner()
+
 	flagService := flag.NewService()
 	flags, err := flagService.GetParsedFlags()
 	if err != nil {
@@ -49,6 +52,8 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+
+	utils.StopSpinner()
 
 	utils.DrawTable(*stsResult.Account, *lastTotalCost, *currentTotalCost, lastMonthData, currentMonthData, "UnblendedCost")
 }
