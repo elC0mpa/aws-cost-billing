@@ -18,5 +18,5 @@ type CostService interface {
 	GetMonthCostsByService(ctx context.Context, endDate time.Time) (*model.CostInfo, error)
 	GetCurrentMonthTotalCosts(ctx context.Context) (*string, error)
 	GetLastMonthTotalCosts(ctx context.Context) (*string, error)
+	GetLastSixMonthsCosts(ctx context.Context) ([]model.CostInfo, error)
 }
-

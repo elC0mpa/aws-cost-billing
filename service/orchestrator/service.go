@@ -21,6 +21,8 @@ func (s *service) Orchestrate(flags model.Flags) error {
 	switch flags.Trend {
 	case false:
 		err = s.defaultWorkflow()
+	case true:
+		err = s.trendWorkflow()
 	}
 
 	return err
@@ -58,3 +60,20 @@ func (s *service) defaultWorkflow() error {
 	return nil
 }
 
+func (s *service) trendWorkflow() error {
+	costInfo, err := s.costService.GetLastSixMonthsCosts(context.Background())
+	if err != nil {
+		return err
+	}
+
+	stsResult, err := s.stsService.GetCallerIdentity(context.Background())
+	if err != nil {
+		return err
+	}
+
+	utils.StopSpinner()
+
+	utils.DrawTrendChart(*stsResult.Account, costInfo)
+
+	return nil
+}
