@@ -1,4 +1,4 @@
-module aws-billing
+module github.com/elC0mpa/aws-billing
 
 go 1.24.6
 

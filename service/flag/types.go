@@ -1,6 +1,7 @@
 package flag
 
-import "aws-billing/model"
+import "github.com/elC0mpa/aws-billing/model"
+
 
 type service struct {
 }

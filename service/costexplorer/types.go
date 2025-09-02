@@ -1,11 +1,11 @@
 package awscostexplorer
 
 import (
-	"aws-billing/model"
 	"context"
 	"time"
 
 	"github.com/aws/aws-sdk-go-v2/service/costexplorer"
+	"github.com/elC0mpa/aws-billing/model"
 )
 
 type service struct {

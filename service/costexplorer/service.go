@@ -1,7 +1,6 @@
 package awscostexplorer
 
 import (
-	"aws-billing/model"
 	"context"
 	"fmt"
 	"strconv"
@@ -10,6 +9,7 @@ import (
 	"github.com/aws/aws-sdk-go-v2/aws"
 	"github.com/aws/aws-sdk-go-v2/service/costexplorer"
 	"github.com/aws/aws-sdk-go-v2/service/costexplorer/types"
+	"github.com/elC0mpa/aws-billing/model"
 )
 
 func NewService(awsconfig aws.Config) *service {

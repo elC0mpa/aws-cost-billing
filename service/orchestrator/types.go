@@ -1,9 +1,9 @@
 package orchestrator
 
 import (
-	"aws-billing/model"
-	awscostexplorer "aws-billing/service/costexplorer"
-	awssts "aws-billing/service/sts"
+	"github.com/elC0mpa/aws-billing/model"
+	awscostexplorer "github.com/elC0mpa/aws-billing/service/costexplorer"
+	awssts "github.com/elC0mpa/aws-billing/service/sts"
 )
 
 type service struct {

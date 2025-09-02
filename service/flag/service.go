@@ -1,8 +1,9 @@
 package flag
 
 import (
-	"aws-billing/model"
 	"flag"
+
+	"github.com/elC0mpa/aws-billing/model"
 )
 
 func NewService() *service {

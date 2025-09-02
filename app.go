@@ -1,13 +1,14 @@
 package main
 
 import (
-	awsconfig "aws-billing/service/aws_config"
-	awscostexplorer "aws-billing/service/costexplorer"
-	"aws-billing/service/flag"
-	"aws-billing/service/orchestrator"
-	awssts "aws-billing/service/sts"
-	"aws-billing/utils"
 	"context"
+
+	awsconfig "github.com/elC0mpa/aws-billing/service/aws_config"
+	awscostexplorer "github.com/elC0mpa/aws-billing/service/costexplorer"
+	"github.com/elC0mpa/aws-billing/service/flag"
+	"github.com/elC0mpa/aws-billing/service/orchestrator"
+	awssts "github.com/elC0mpa/aws-billing/service/sts"
+	"github.com/elC0mpa/aws-billing/utils"
 )
 
 func main() {

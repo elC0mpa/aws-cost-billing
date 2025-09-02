@@ -1,13 +1,13 @@
 package utils
 
 import (
-	"aws-billing/model"
 	"fmt"
 	"sort"
 	"time"
 
 	"github.com/NimbleMarkets/ntcharts/barchart"
 	"github.com/charmbracelet/lipgloss"
+	"github.com/elC0mpa/aws-billing/model"
 	"github.com/jedib0t/go-pretty/v6/text"
 )
 

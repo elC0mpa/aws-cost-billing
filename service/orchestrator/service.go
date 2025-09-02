@@ -1,11 +1,12 @@
 package orchestrator
 
 import (
-	"aws-billing/model"
-	awscostexplorer "aws-billing/service/costexplorer"
-	awssts "aws-billing/service/sts"
-	"aws-billing/utils"
 	"context"
+
+	"github.com/elC0mpa/aws-billing/model"
+	awscostexplorer "github.com/elC0mpa/aws-billing/service/costexplorer"
+	awssts "github.com/elC0mpa/aws-billing/service/sts"
+	"github.com/elC0mpa/aws-billing/utils"
 )
 
 func NewService(stsService awssts.STSService, costService awscostexplorer.CostService) *service {
@@ -13,6 +14,7 @@ func NewService(stsService awssts.STSService, costService awscostexplorer.CostSe
 		stsService:  stsService,
 		costService: costService,
 	}
+
 }
 
 func (s *service) Orchestrate(flags model.Flags) error {

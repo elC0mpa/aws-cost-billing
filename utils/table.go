@@ -1,12 +1,12 @@
 package utils
 
 import (
-	"aws-billing/model"
 	"fmt"
 	"sort"
 	"strconv"
 	"strings"
 
+	"github.com/elC0mpa/aws-billing/model"
 	"github.com/jedib0t/go-pretty/v6/table"
 	"github.com/jedib0t/go-pretty/v6/text"
 )
