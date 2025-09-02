@@ -8,6 +8,10 @@ A terminal-based AWS cost and billing tool built with Golang. It provides a cost
 
 ![](https://github.com/elC0mpa/aws-cost-billing/blob/main/demo/basic.gif)
 
+### Trend
+
+![](https://github.com/elC0mpa/aws-cost-billing/blob/main/demo/trend.gif)
+
 ## Motivation
 
 As a Cloud Architect, I often need to check AWS costs and billing information. Even though AWS provides this information through the console, I usually executed the same steps to get the summary I needed, and basically this is why I created this tool. Besides saving time, it provides a table with all information you need to compare costs between current and previous month for the same period of time.
@@ -16,9 +20,10 @@ As a Cloud Architect, I often need to check AWS costs and billing information. E
 
 - `--profile`: Specify the AWS profile to use (default is "").
 - `--region`: Specify the AWS region to use (default is "us-east-1").
+- `--trend`: Shows a trend analysis for the last 6 months.
 
 ## Pending features
 
-- [ ] Add monthly trend analysis.
+- [x] Add monthly trend analysis.
 - [ ] Export report to CSV and PDF formats.
 - [ ] Distribute the CLI in fedora, ubuntu and macOS repositories.
