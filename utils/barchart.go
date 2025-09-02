@@ -8,6 +8,7 @@ import (
 
 	"github.com/NimbleMarkets/ntcharts/barchart"
 	"github.com/charmbracelet/lipgloss"
+	"github.com/jedib0t/go-pretty/v6/text"
 )
 
 const (
@@ -18,6 +19,10 @@ const (
 	ColorRank5 = "#66c2a5"
 	ColorRank6 = "#1a9850"
 )
+
+var defaultStyle = lipgloss.NewStyle().
+	BorderStyle(lipgloss.NormalBorder()).
+	BorderForeground(lipgloss.Color("#F4D060"))
 
 func DrawTrendChart(accountId string, monthlyCosts []model.CostInfo) {
 	bc := barchart.New(130, 20)
@@ -42,7 +47,12 @@ func DrawTrendChart(accountId string, monthlyCosts []model.CostInfo) {
 	fmt.Println()
 
 	bc.Draw()
-	fmt.Println(bc.View())
+	s := text.FgYellow.Sprintf("Trend analysis for account %s\n", accountId)
+	s += lipgloss.JoinHorizontal(lipgloss.Top,
+		defaultStyle.Render(bc.View()),
+	)
+
+	fmt.Println(s)
 }
 
 func getBarLabel(date string, monthlyCost model.CostInfo) string {
